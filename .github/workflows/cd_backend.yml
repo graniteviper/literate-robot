@@ -23,4 +23,4 @@ jobs:
           context: .
           file: ./docker/Dockerfile.be
           push: true
-          tags: tandev/week-27-be:${{github.sha}}
+          tags: graniteviper/week-27-be:${{github.sha}}
