@@ -37,4 +37,9 @@ app.post("/user", (req, res) => {
     });
 })
 
+app.get("/hi",(req,res)=>{
+  res.send("Supp!!")
+  return;
+})
+
 app.listen(8080);
