@@ -24,3 +24,9 @@ jobs:
           file: ./docker/Dockerfile.be
           push: true
           tags: graniteviper/week-27-be:${{github.sha}}
+
+      - name: Running service in the VM
+        run: |
+          echo "${{secrets.SSH_GCP_KEY}}" &> ~/ssh_key
+          chmod 700 /home/runner/ssh_key
+          ssh -o StrictHostKeyChecking=no -i ~/ssh_key tanishq@34.42.191.90 -t " sudo docker stop user_backend && sudo docker rm user_backend && sudo docker run -p 8080:8080 --name "user_backend" -d graniteviper/week-27-be:${{github.sha}}"
